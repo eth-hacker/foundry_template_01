@@ -1,0 +1,30 @@
+[fmt]
+quote_style = 'single'
+line_length = 120
+
+[profile.default]
+solc = '0.8.14'
+src = 'solidity'
+test = 'solidity/test'
+out = 'out'
+libs = ['lib']
+fuzz_runs = 1000
+optimizer_runs = 10_000
+rpc_endpoints = { mainnet = "https://rpc.ankr.com/eth", optimism = "https://rpc.ankr.com/optimism" , fantom = "https://rpc.ankr.com/fantom", arbitrum = "https://rpc.ankr.com/arbitrum" , bsc = "https://divine-black-wind.bsc.discover.quiknode.pro/64ab050694137dfcbf4c20daec2e94dc515c1d60/" }
+remappings = [
+  'forge-std/=lib/forge-std/src/',
+  'solmate=lib/solmate/src',
+]
+
+[profile.optimized]
+via_ir = true
+out = 'out-via-ir'
+fuzz_runs = 5000
+
+[profile.test]
+via_ir = true
+out = 'out-via-ir'
+fuzz_runs = 5000
+src = 'solidity/test'
+
+
